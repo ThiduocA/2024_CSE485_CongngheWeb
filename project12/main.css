@@ -1,0 +1,34 @@
+
+
+.header-bridcrum {
+    text-align: center;
+
+    margin-top: 20px;
+    padding: 10px;
+    background-color:blue ;
+
+}
+.bridcum-list{
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+  
+}
+.bridcrum-item {
+    list-style: none;
+    border-right: 1px solid black;
+}
+.bridcrum-link {
+    padding: 20px;
+    text-decoration: none;
+    color: #fff;
+}
+.bridcrum-item:last-child {
+    border-right:none;
+}
+
+/* bai3 */
+.row-in-table {
+    display: flex;
+}
