@@ -1,0 +1,24 @@
+.navigation {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    background-color: blue;
+    padding: 10px;
+}
+
+
+
+a {
+    padding: 10px 20px;
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-decoration: none;
+}
+
+a:not(:last-child) {
+    border-right: 1px solid white;
+}
+
+.fixDot {
+    list-style-type: none;
+}
