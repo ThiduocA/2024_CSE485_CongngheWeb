@@ -18,11 +18,11 @@
             <div class = "titleHeader">Basic Info</div>
             <form action="">
                 <div class="form-group" style="display:flex">
-                    <div class = "label"> Employee ID</div>
+                    <div class = "label"><label>Employee ID</label></div>
                     <div class = "input"> 9</div>
                 </div>
                 <div class="form-group" >
-                    <div class = "label">Last Name</div>
+                    <div class = "label"><label>Last Name</label></div>
                     <div class = "input"> Dodsworth</div>
                 </div>
                 <div class="form-group" >
@@ -30,7 +30,7 @@
                     <div class = "input"><input type="text" style="width:80%"></div>
                 </div>
                 <div class="form-group" style="display:flex">
-                    <div class = "label">Gender</div>
+                    <div class = "label"><label for="">Gender</label></div>
                     <div>
                         <input type="radio" name="gender" > Male<br>
                         <input type="radio" name="gender" > Female<br>
@@ -59,7 +59,7 @@
                     <div class = "input"><input type="text" style="width:80%"></div>
                 </div>
                 <div class="form-group" style="display:flex">
-                    <div class = "label">Reports To</div>
+                    <div class = "label"><label for="">Reports To</label></div>
                     <div class = "input">
                         <select class="form-select" aria-label="Default select example" style="width:30%">
                             <option selected>Buchanan</option>
@@ -95,7 +95,7 @@
                         <div class = "input"><input type="text" style="width:80%"></div>
                     </div>  
                     <div class="form-group" style="display:flex">
-                        <div class = "label">Country</div>           
+                        <div class = "label"><label for="">Country</label></div>           
                         <div class = "input">
                             <select class="form-select" aria-label="Default select example" style="width:30%">
                                 <option selected>Russian Federation</option>
@@ -118,24 +118,24 @@
             <div class = "titleHeader">Optional Info</div>
             <form action="">
                 <div >
-                        <div class = "label" style="margin-bottom: 10px"> Notes</div>
+                        <div class = "label" style="margin-bottom: 10px"><label for="">Notes</label></div>
                         <div id="editor" > <p>Anne has a BA</p></div>
                     </div>
                 <div class="form-group" style="display:flex">
-                    <div class = "label">Preferred Shift</div>
+                    <div class = "label"><label for="">Preferred Shift</label></div>
                     <div class = "input">
                         <input type="checkbox" value="Regular"> Regular<br>
                         <input type="checkbox" value="Gravy Yard"> Gravy Yard
                     </div>
                 </div>
                 <div class="form-group" style="display:flex">
-                    <div class = "label">Actives</div>
+                    <div class = "label"><label for="">Actives</label></div>
                     <div class = "input">
                         <input type="checkbox" ><br>
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class = "label">Are you human?</div>
+                    <div class = "label"><label for="">Are you human?</label></div>
                     <div class = "input">
                         <input type="text" name="question" style="width:80%">
                     </div>
