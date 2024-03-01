@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.container form input[type="text"],
+.container form input[type="password"] {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.container form button {
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.container form button:hover {
+    background-color: #0056b3;
+}
