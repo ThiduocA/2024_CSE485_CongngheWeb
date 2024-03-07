@@ -1,161 +1,133 @@
-
 <?php
-    include 'main.php';
-    $countries = array (
-        "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Anguilla",
-        "Antigua & Barbuda",
-        "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan",
-        "Bahamas", "Bahrain",
-        "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin",
-        "Bermuda", "Bhutan",
-        "Bolivia", "Bosnia & Herzegovina", "Botswana", "Brazil", "British Virgin
-        Islands", "Brunei",
-        "Bulgaria", "Burkina Faso", "Burundi", "Vietnam"
-    );
+$countries = array(
+    "Afghanistan",
+    "Albania",
+    "Algeria",
+    "Andorra",
+    "Angola",
+    "Anguilla",
+    "Antigua & Barbuda",
+    "Argentina",
+    "Armenia",
+    "Aruba",
+    "Australia",
+    "Austria",
+    "Azerbaijan",
+    "Bahamas",
+    "Bahrain",
+    "Bangladesh",
+    "Barbados",
+    "Belarus",
+    "Belgium",
+    "Belize",
+    "Benin",
+    "Bermuda",
+    "Bhutan",
+    "Bolivia",
+    "Bosnia & Herzegovina",
+    "Botswana",
+    "Brazil",
+    "British Virgin Islands",
+    "Brunei",
+    "Bulgaria",
+    "Burkina Faso",
+    "Burundi",
+    "Vietnam"
+);
+$names = array(
+    "Dũng",
+    "Dương",
+    "Hoàng",
+    "Hưng"
+);
 ?>
-    <div class="container">
-        <div>
-            <div class = "titleHeader">Basic Info</div>
-            <form action="">
-                <div class="form-group" style="display:flex">
-                    <div class = "label"><label>Employee ID</label></div>
-                    <div class = "input"> 9</div>
+
                 </div>
-                <div class="form-group" >
-                    <div class = "label"><label>Last Name</label></div>
-                    <div class = "input"> Dodsworth</div>
+                <div class="form-group">
+                    <div class="label">
+                        First Name
+                    </div>
+                    <div class="input">
+                        <input type="text" value="Anne">
+                    </div>
                 </div>
-                <div class="form-group" >
-                    <div class = "label"><label >First Name</label></div>
-                    <div class = "input"><input type="text" style="width:80%"></div>
-                </div>
-                <div class="form-group" style="display:flex">
-                    <div class = "label"><label for="">Gender</label></div>
-                    <div>
-                        <input type="radio" name="gender" > Male<br>
-                        <input type="radio" name="gender" > Female<br>
-                        <input type="radio" name="gender" > XXX<br>
-                        <input type="radio" name="gender" > ZZZ
+
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class = "label"><label >Title</label></div>
-                    <div class = "input"><input type="text" style="width:80%"></div>
+                    <div class="label">
+                        Title
+                    </div>
+                    <div class="input">
+                        <input type="text" name="title" id="" value="Sales Representative">
+                    </div>
                 </div>
                 <div class="form-group">
-                    <div class = "label"><label >Suffix</label></div>
-                    <div class = "input"><input type="text" style="width:80%"></div>
+                    <div class="label">
+                        Suffix
+                    </div>
+                    <div class="input">
+                        <input type="text" name="suffix" id="" value="Ms.">
+                    </div>
                 </div>
                 <div class="form-group">
-                    <div class = "label"><label >BirthDate</label></div>
-                    <div class = "input"><input type="date" style="width:80%"></div>
+                    <div class="label">
+                        BirthDate
+                    </div>
+                    <div class="input">
+                        <input type="date" name="birthdate" id="" value="Sales Representative">
+                    </div>
                 </div>
                 <div class="form-group">
-                    <div class = "label"><label >HireDate</label></div>
-                    <div class = "input"><input type="date" style="width:80%"></div>
+                    <div class="label">
+                        HireDate
+                    </div>
+                    <div class="input">
+                        <input type="date" name="hiredate" id="" value="Sales Representative">
+                    </div>
                 </div>
                 <div class="form-group">
-                    <div class = "label"><label >SSN # (if applicable)</label></div>
-                    <div class = "input"><input type="text" style="width:80%"></div>
+                    <div class="label">
+                        SSN # (if applicable)
+                    </div>
+                    <div class="input">
+                        <input type="text" name="ssn" id="">
+                    </div>
                 </div>
-                <div class="form-group" style="display:flex">
-                    <div class = "label"><label for="">Reports To</label></div>
-                    <div class = "input">
-                        <select class="form-select" aria-label="Default select example" style="width:30%">
-                            <option selected>Buchanan</option>
-                                <?php foreach ($countries as $item) : ?>
-                                    <option value = ""><?php echo $item; ?></option>
-                                <?php endforeach; ?>
+
                         </select>
-                        <br>
                     </div>
+                    <br>
                 </div>
-            </form>
-            <div class = "titleHeader">Contact Info</div>
-            <form action="">
-                    <div class="form-group">
-                        <div class = "label"><label >Email</label></div>
-                        <div class = "input" ><input type="text" style="width:80%" placeholder="name@example.com"></div>
+            </div>
+            <div class="content">
+                <div class="title">Contact Info</div>
+                <div class="form-group">
+                    <div class="label">
+                        Email
                     </div>
-                    </div> 
-                    <div class="form-group">
-                        <div class = "label"><label >Address</label></div>
-                        <div class = "input"><input type="text" style="width:80%"></div>
-                    </div> 
-                    <div class="form-group">
-                        <div class = "label"><label >City</label></div>
-                        <div class = "input"><input type="text" style="width:80%"></div>
-                    </div>  
-                    <div class="form-group">
-                        <div class = "label"><label >Region</label></div>
-                        <div class = "input"><input type="text" style="width:80%"></div>
-                    </div>   
-                    <div class="form-group">
-                        <div class = "label"><label >Postal Code</label></div>
-                        <div class = "input"><input type="text" style="width:80%"></div>
-                    </div>  
-                    <div class="form-group" style="display:flex">
-                        <div class = "label"><label for="">Country</label></div>           
-                        <div class = "input">
-                            <select class="form-select" aria-label="Default select example" style="width:30%">
-                                <option selected>Russian Federation</option>
-                                    <?php foreach ($countries as $item) : ?>
-                                        <option value = ""><?php echo $item; ?></option>
-                                    <?php endforeach; ?>
-                            </select>
-                            <br>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class = "label"><label >US Home Phone</label></div>
-                        <div class = "input"><input type="text" style="width:80%"></div>
-                    </div>    
-                    <div class="form-group">
-                        <div class = "label"><label >Photo</label></div>
-                        <div class = "input"><input type="text" style="width:80%"></div>
-                    </div>    
-            </form>
-            <div class = "titleHeader">Optional Info</div>
-            <form action="">
-                <div >
-                        <div class = "label" style="margin-bottom: 10px"><label for="">Notes</label></div>
-                        <div id="editor" > <p>Anne has a BA</p></div>
-                    </div>
-                <div class="form-group" style="display:flex">
-                    <div class = "label"><label for="">Preferred Shift</label></div>
-                    <div class = "input">
-                        <input type="checkbox" value="Regular"> Regular<br>
-                        <input type="checkbox" value="Gravy Yard"> Gravy Yard
-                    </div>
-                </div>
-                <div class="form-group" style="display:flex">
-                    <div class = "label"><label for="">Actives</label></div>
-                    <div class = "input">
-                        <input type="checkbox" ><br>
+                    <div class="input">
+                        <input type="email" name="email" id="" value="name@example.com">
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class = "label"><label for="">Are you human?</label></div>
-                    <div class = "input">
-                        <input type="text" name="question" style="width:80%">
+                    <div class="label">
+                        Address
+                    </div>
+                    <div class="input">
+                        <input type="text" name="address" id="" value="7 Houndstooth Rd.">
                     </div>
                 </div>
-                <div class="button-container" style="display:flex">
-                    <div>
-                        <button type = "submit">Submit</button>
-                    </div>
-                    <div>
-                        <button type = "submit" >Cancel</button>
-                    </div>
-                </div>
-            </form>
-            
-            <script>
-            ClassicEditor
-                .create( document.querySelector( '#editor' ) )
-                .catch( error => {
-                    console.error( error );
-                } );
-            </script> 
+
         </div>
-    </div>
+    </form>
+</body>
+
+</html>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
