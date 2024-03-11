@@ -89,4 +89,37 @@ class UserService
         mysqli_stmt_close($stmt);
         return $count > 0;
     }
+    public function login($username, $password) {
+        $conn = connectDB();
+        $sql = "SELECT * FROM users WHERE username = ?";
+        $stmt = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($stmt, "s", $username);
+        mysqli_stmt_execute($stmt);
+    
+        $result = mysqli_stmt_get_result($stmt);
+    
+        if ($row = mysqli_fetch_assoc($result)) {
+            // Kiểm tra mật khẩu
+            if (password_verify($password, $row['password'])) {
+                // Mật khẩu đúng, đăng nhập thành công
+                // Thực hiện các hành động cần thiết (ví dụ: lưu trạng thái đăng nhập vào session)
+                session_start();
+                $_SESSION['username'] = $username;
+                $_SESSION['user_id'] = $row['employeeID'];
+    
+                // Chuyển hướng hoặc trả về true để thông báo đăng nhập thành công
+                return true;
+            } else {
+                // Mật khẩu không đúng
+                return false;
+            }
+        } else {
+            // Tên đăng nhập không tồn tại
+            return false;
+        }
+    
+        // Đóng kết nối
+       
+    }
+    
 }
