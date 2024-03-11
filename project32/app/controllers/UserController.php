@@ -11,4 +11,9 @@ class UserController
         $employees = $employeeService->getEmployees();
         include('views/users/index.php');
     }
+
+    public function logout(){
+        session_destroy();
+        header('Location:?controller=guest&action=login');
+    }
 }
