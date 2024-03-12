@@ -7,7 +7,7 @@ class GuestController {
     public function index(){
         //Co lay du lieu gi ko
         $employeeService = new EmployeeService();
-        $employees = $employeeService->getEmployees();
+        $employees = $employeeService->getAllEmployee();
         
         
         //Su dung du lieu do o dau

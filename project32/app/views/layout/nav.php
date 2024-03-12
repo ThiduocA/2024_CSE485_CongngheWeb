@@ -1,4 +1,4 @@
-<nav>
+<nav class='first-nav'>
     <div class="search-input">
         <input type="text" placeholder="Tìm kiếm">
     </div>
