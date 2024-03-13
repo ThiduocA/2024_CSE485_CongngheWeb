@@ -8,7 +8,7 @@ class UserController
         // $userService = new UserService();
         // $userService->getUsers();
         $employeeService = new EmployeeService();
-        $employees = $employeeService->getEmployees();
+        $employees = $employeeService->getAllEmployee();
         include('views/users/index.php');
     }
 

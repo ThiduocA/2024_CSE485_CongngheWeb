@@ -152,6 +152,7 @@ footer {
 
 
 
+
 .divider:after,
 .divider:before {
     content: "";
@@ -216,12 +217,4 @@ footer {
 .button-27:active {
     box-shadow: none;
     transform: translateY(0);
-}
-
-/* department */
-.section-department-table {
-    width: 80%;
-}
-.form-edit-department {
-    width: 50%;
 }

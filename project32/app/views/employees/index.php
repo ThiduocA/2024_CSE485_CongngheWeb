@@ -1,3 +1,13 @@
+<script>
+function confirmDelete(element) {
+    var id = element.id;
+    if (confirm('Bạn có chắc chắn muốn xóa nhân viên có Mã nhân viên là ' + id + ' không?')) {
+        window.location.href = 'EmployeeController.php?controller=delete&id=' + id;
+        alert("Nhân viên đã được xóa thành công.");
+    }
+    return false;
+}
+</script>
 <main class="mt-3">
     <div class="container" style='width: 80vw'>
         <div class="row">
@@ -37,10 +47,12 @@
                                         <a href="EmployeeController.php?controller=detail&id=<?= $employeeID['employeeID'] ?>" class="btn btn-primary"><i class="bi bi-eye-fill"></i></a>
                                     </td>
                                     <td>
-                                        <a href="employee_edit.php?id=<?= $employeeID['employeeID'] ?>" class="btn btn-warning"><i class="bi bi-pencil-fill"></i></a>
+                                        <a href="EmployeeController.php?controller=edit&id=<?= $employeeID['employeeID'] ?>" class="btn btn-warning"><i class="bi bi-pencil-fill"></i></a>
                                     </td>
                                     <td>
-                                        <a href="#" class="btn btn-danger"><i class="bi bi-trash3-fill"></i></a>
+                                        <a href="#" id='<?= $employeeID['employeeID'] ?>' class="btn btn-danger" onclick="return confirmDelete(this);">
+                                            <i class="bi bi-trash3-fill"></i>
+                                        </a>
                                     </td>
                                 </tr>
                         <?php $i++; endforeach;
@@ -78,3 +90,4 @@
         </div>
     </div>
 </main>
+
