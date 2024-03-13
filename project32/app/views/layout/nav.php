@@ -1,4 +1,5 @@
 <nav>
+    
     <div class="search-input">
         <input type="text" placeholder="Tìm kiếm">
     </div>
@@ -7,8 +8,9 @@
     </div>
     <!-- ktra da dang nhap chua, neu roi thi ko co nut dang nhap -->
     <div class="login-btn">
-        <a href="index.php/?controller=guest&action=login"><button class="button-27" role="button">ĐĂNG
-                NHẬP</button></a>
-
+        <a href="index.php/?controller=guest&action=login">
+            <button class="button-27" role="button">ĐĂNG NHẬP</button>
+        </a>
     </div>
+
 </nav>
