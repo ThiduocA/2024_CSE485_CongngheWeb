@@ -1,14 +1,16 @@
-
+<?php session_start(); ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-<?php include (ROOT."/views/layout/head.php");?>
+    <?php include (ROOT."/views/layout/head.php");?>
 
-  
+
 </head>
+
 <body>
     <?php include (ROOT."/views/layout/banner.php");?>
     <?php include (ROOT."/views/layout/nav-logged.php");?>
@@ -31,7 +33,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($getdepartments as $department): ?>
+                    <?php foreach ($getdepartments as $department): ?>
                     <tr>
                         <td><?= $department->getDepartmentID();?></td>
                         <td><?= $department->getDepartmentName();?></td>
@@ -42,11 +44,14 @@
                         <td><?= $department->getWebsite();?></td>
                         <td><?= $department->getParentDepartment();?></td>
                         <td>
-                            <a href="<?= domains.'index.php?controller=department&action=edit&id='. $department->getDepartmentID();?>">Edit</a> |
-                            <a href="<?= domains.'index.php?controller=department&action=delete&id='. $department->getDepartmentID();?>">Delete</a>
+                            <a
+                                href="<?= domains.'index.php?controller=department&action=edit&id='. $department->getDepartmentID();?>">Edit</a>
+                            |
+                            <a
+                                href="<?= domains.'index.php?controller=department&action=delete&id='. $department->getDepartmentID();?>">Delete</a>
                         </td>
                     </tr>
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
 
@@ -55,4 +60,5 @@
 
 
 </body>
+
 </html>

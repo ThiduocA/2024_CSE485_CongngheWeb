@@ -1,17 +1,17 @@
 <?php
-require_once ('../config/config.php');
+
 require_once ROOT.'/services/EmployeeService.php';
 require_once ROOT.'/views/layout/head.php';
 
 include ROOT.'/views/layout/banner.php';
-$controller = isset($_GET['controller'])? $_GET['controller'] : 'index';
+
 
 class EmployeeController {
     //action:index = method: index
     public function index(){
         //Co lay du lieu gi ko
         $employeeService = new EmployeeService();
-        $employees = $employeeService->getAllEmployee();
+        $employees = $employeeService->getEmployee();
 
 
         //Su dung du lieu do o dau
@@ -21,7 +21,7 @@ class EmployeeController {
     public function create(){
          //Co lay du lieu gi ko
          $employeeService = new EmployeeService();
-         $department = $employeeService->getAllEmployee();
+         $department = $employeeService->getEmployee();
 
          //Su dung du lieu do o dau
          include(ROOT.'/views/employees/employee_add.php');
@@ -38,15 +38,14 @@ class EmployeeController {
 // echo '<pre>';
 // print_r($controller);
 // echo '</pre>';
-$test = new EmployeeController();
-if($controller == 'index'){
-    $test->index();
-}
-if($controller == 'add'){
-    $test->create();
-}
-if($controller == 'detail'){
-    $test->detail();
-}
-include ROOT.'/views/layout/footer.php';
-?>
+// $test = new EmployeeController();
+// if($controller == 'index'){
+//     $test->index();
+// }
+// if($controller == 'add'){
+//     $test->create();
+// }
+// if($controller == 'detail'){
+//     $test->detail();
+// }
+// include ROOT.'/views/layout/footer.php';

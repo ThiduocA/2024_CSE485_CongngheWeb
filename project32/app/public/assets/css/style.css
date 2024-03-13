@@ -25,7 +25,7 @@ header {
     justify-content: center;
 }
 
-.first-nav {
+nav {
     background-color: #F6B49A;
     width: 80%;
     margin-top: 20px;
@@ -222,6 +222,7 @@ footer {
 .section-department-table {
     width: 80%;
 }
+
 .form-edit-department {
     width: 50%;
 }

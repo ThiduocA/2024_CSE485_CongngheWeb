@@ -2,7 +2,7 @@
 include (ROOT."/models/Employee.php");
 include (ROOT."/config/database.php");
 class EmployeeService{
-    public function getAllEmployee() {
+    public function getEmployee() {
         $conn = connectDB();
         $sql = "SELECT * FROM employees";
         $result = mysqli_query($conn, $sql);
