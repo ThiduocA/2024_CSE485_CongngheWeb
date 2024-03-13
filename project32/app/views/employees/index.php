@@ -1,3 +1,11 @@
+<script>
+function confirmDelete() {
+    if (confirm('Bạn có chắc chắn muốn xóa nhân viên này không?')) {
+        alert("Nhân viên đã được xóa thành công.");
+    }
+    return false;
+}
+</script>
 <?php session_start(); ?>
 <main class="mt-3">
     <div class="container" style='width: 80vw'>
@@ -43,7 +51,9 @@
                                     class="btn btn-warning"><i class="bi bi-pencil-fill"></i></a>
                             </td>
                             <td>
-                                <a href="#" class="btn btn-danger"><i class="bi bi-trash3-fill"></i></a>
+                                <a href="?controller=employee&action=delete&id=<?= $employeeID['employeeID'] ?>"
+                                    class="btn btn-danger" onclick="confirmDelete()"><i
+                                        class="bi bi-trash3-fill"></i></a>
                             </td>
                         </tr>
                         <?php $i++; endforeach;
