@@ -1,11 +1,11 @@
 <?php
-require_once ('../config/config.php');
+
 require_once ROOT.'/services/EmployeeService.php';
 require_once ROOT.'/services/UserService.php';
 require_once ROOT.'/views/layout/head.php';
 
 include ROOT.'/views/layout/banner.php';
-$controller = isset($_GET['controller'])? $_GET['controller'] : 'index';
+include ROOT.'/views/layout/nav-logged.php';
 
 function hashPassword($password) {
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -35,7 +35,7 @@ class EmployeeController {
         }
         $employeeService = new EmployeeService();
         $employees = $employeeService->getEmployee();
-        
+
 
         //Su dung du lieu do o dau
         include(ROOT.'/views/employees/index.php');
@@ -44,8 +44,9 @@ class EmployeeController {
     public function create(){
         //Co lay du lieu gi ko
         $id = isset($_GET['id'])? $_GET['id'] : '1';
+
+        
         $employeeService = new EmployeeService();
-        $departments = $employeeService->getEmployeeById($id);
 
         $userService = new UserService();
         $user = $userService->getUserById($id);
@@ -61,9 +62,9 @@ class EmployeeController {
 
         $userService = new UserService();
         $user = $userService->getUserById($id);
-        echo '<pre>';
-        print_r($user);
-        echo '</pre>';
+        // echo '<pre>';
+        // print_r($user);
+        // echo '</pre>';
         //Su dung du lieu do o dau
         include(ROOT.'/views/employees/employee_detail.php');
    }
@@ -84,27 +85,21 @@ class EmployeeController {
         $user = $userService->deleteUser($id);
         $employeeService = new EmployeeService();
         $departments = $employeeService->deleteEmployee($id);
+        $employees = $employeeService->getEmployee();
+        include(ROOT.'/views/employees/index.php');
    }
 }
 // echo '<pre>';
 // print_r($controller);
 // echo '</pre>';
-$test = new EmployeeController();
-if($controller == 'index'){
-    $test->index();
-}
-if($controller == 'add'){
-    $test->create();
-}
-if($controller == 'detail'){
-    $test->detail();
-}
-if($controller == 'edit'){
-    $test->edit();
-}
-if($controller == 'delete'){
-    $test->delete();
-    $test->index();
-}
-include ROOT.'/views/layout/footer.php';
-?>
+// $test = new EmployeeController();
+// if($controller == 'index'){
+//     $test->index();
+// }
+// if($controller == 'add'){
+//     $test->create();
+// }
+// if($controller == 'detail'){
+//     $test->detail();
+// }
+// include ROOT.'/views/layout/footer.php';

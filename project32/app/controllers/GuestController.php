@@ -7,9 +7,7 @@ class GuestController {
     public function index(){
         //Co lay du lieu gi ko
         $employeeService = new EmployeeService();
-        $employees = $employeeService->getAllEmployee();
-        
-        
+       $employees = $employeeService->getEmployee();
         //Su dung du lieu do o dau
         include('views/guest/index.php');
     }
