@@ -1,5 +1,4 @@
 <nav>
-    
     <div class="search-input">
         <input type="text" placeholder="Tìm kiếm">
     </div>
@@ -12,5 +11,4 @@
             <button class="button-27" role="button">ĐĂNG NHẬP</button>
         </a>
     </div>
-
 </nav>
