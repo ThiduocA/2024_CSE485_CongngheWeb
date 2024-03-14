@@ -1,6 +1,8 @@
 <?php
 require_once(ROOT . "/services/EmployeeService.php");
 require_once(ROOT . '/services/UserService.php');
+require_once(ROOT . '/services/DepartmentService.php');
+
 
 class UserController
 {
@@ -12,7 +14,22 @@ class UserController
         $employees = $employeeService->getEmployee();
         include('views/users/index.php');
     }
+    public function advanced_search(){
+        $employeeService = new EmployeeService();
+        $employees = $employeeService->getEmployee();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['department_Name'])) {    
+                $employeeService = new EmployeeService();
+                $employees = $employeeService->getEmployeeByDepartmentId($_POST['department_Name']);
+        }else if(isset($_POST['search'])){
+            $employeeService = new EmployeeService();
+            $employees = $employeeService->getEmployeeName($_POST['search']);
+        }
+        
 
+        $DepartmentService = new DepartmentService();
+        $getdepartments = $DepartmentService->getDepartments();
+        include('views/users/search.php');
+    }
     public function logout()
     {
         session_destroy();

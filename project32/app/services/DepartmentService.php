@@ -2,6 +2,19 @@
 include (ROOT."/models/Department.php");
 include (ROOT."/config/database.php");
 class DepartmentService {
+    public function getdepartmentName($id)
+    {
+        $conn = connectDB();
+        $sql = "SELECT departmentName FROM departments WHERE departmentID = ?";
+        $stmt = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($stmt, "s", $id);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $departmentName = mysqli_fetch_assoc($result);
+        mysqli_free_result($result);
+        mysqli_stmt_close($stmt);
+        return $departmentName;
+    }
     function getDepartments() {
         $conn = connectDB();
         $sql = "SELECT * FROM departments";

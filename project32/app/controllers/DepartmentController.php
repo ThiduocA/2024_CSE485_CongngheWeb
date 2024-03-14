@@ -1,4 +1,6 @@
+<?php session_start(); ?>
 <?php 
+
 include (ROOT ."/services/DepartmentService.php");
 require_once ROOT.'/views/layout/head.php';
 
@@ -8,6 +10,7 @@ class DepartmentController {
     //action:index = method: index
     public function index(){
         //Co lay du lieu gi ko
+        
         $DepartmentService = new DepartmentService();
         $getdepartments = $DepartmentService->getDepartments();
         //Su dung du lieu do o dau

@@ -7,11 +7,11 @@
         <a href="?controller=employee"><button class="button-27" role="button">QUẢN LÝ NHÂN
                 VIÊN</button></a>
     </div>
-    <div class="search-input">
-        <input type="text" placeholder="Tìm kiếm">
-    </div>
+
     <div class="advanced-search-btn">
-        <button class="button-27" role="button">TÌM KIẾM NÂNG CAO</button>
+        <a href="?controller=user&action=advanced_search"><button class="button-27" role="button">TÌM KIẾM NÂNG
+                CAO</button></a>
+
     </div>
 
     <!-- ktra da dang nhap chua, neu roi thi ko co nut dang nhap -->
