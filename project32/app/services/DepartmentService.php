@@ -59,8 +59,8 @@ class DepartmentService {
         $obj = new department($department['departmentID'], $department['departmentName'], $department['address'], $department['email'],$department['phone'], $department['logo'], $department['website'], $department['parentDepartmentID']);
         mysqli_stmt_close($stmt);
         return $obj;
-       }   
-       function updateDepartment($id, $departmentName, $address ) {
+    }
+    function updateDepartment($id, $departmentName, $address ) {
         $conn = connectDB();
         
         try {
@@ -93,7 +93,26 @@ class DepartmentService {
 
             include ('views/departments/editdepartment.php');
         }
+
+    } 
+    function addDepartment($departmentName, $address, $email, $phone, $logo, $website, $parentDepartment) {
+        $conn = connectDB();
+        $sql = "INSERT INTO departments (departmentName, address, email, phone, logo, website, parentDepartmentID) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $stmt = mysqli_prepare($conn, $sql);
+        
+        // Bind parameters
+        mysqli_stmt_bind_param($stmt, "sssssss", $departmentName, $address, $email, $phone, $logo, $website, $parentDepartment);
+        
+        // Execute the statement
+        $result = mysqli_stmt_execute($stmt);
+        
+        // Close the statement
+        mysqli_stmt_close($stmt);
+        
+        // Return the result of execution
+        return $result;
     }
+      
 }
 
 
