@@ -96,21 +96,24 @@ class DepartmentService {
 
     } 
     function addDepartment($departmentName, $address, $email, $phone, $logo, $website, $parentDepartment) {
+      
+        if (empty($departmentName) || empty($address) || empty($email) || empty($phone) || empty($logo) || empty($website) || empty($parentDepartment)) {
+            echo '<p style="color: red; margin-top:30px; margin-bottom:0;">Bạn phải điền đầy đủ thông tin và điền chính xác parentDepartment</p>';
+            return false;
+        }
+    
         $conn = connectDB();
         $sql = "INSERT INTO departments (departmentName, address, email, phone, logo, website, parentDepartmentID) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($conn, $sql);
-        
-        // Bind parameters
+    
         mysqli_stmt_bind_param($stmt, "sssssss", $departmentName, $address, $email, $phone, $logo, $website, $parentDepartment);
-        
-        // Execute the statement
+    
         $result = mysqli_stmt_execute($stmt);
-        
-        // Close the statement
+    
         mysqli_stmt_close($stmt);
-        
-        // Return the result of execution
+    
         return $result;
     }
+    
       
 }
