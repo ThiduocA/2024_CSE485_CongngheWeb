@@ -21,6 +21,7 @@ class DepartmentController {
     }
     public function edit(){
 
+
         $id = isset($_GET['id'])? $_GET['id'] : '';
     
    
@@ -101,8 +102,7 @@ class DepartmentController {
         $departmentid = $DepartmentService->getDepartmentById($id);
         include ('views/departments/viewdepartment.php');
     }
-    
-    
-    
+}
+
 
 }

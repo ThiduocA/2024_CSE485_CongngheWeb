@@ -80,6 +80,7 @@ class DepartmentService {
 
             include ('views/departments/editdepartment.php');
         }
+
     } 
     function addDepartment($departmentName, $address, $email, $phone, $logo, $website, $parentDepartment) {
         $conn = connectDB();

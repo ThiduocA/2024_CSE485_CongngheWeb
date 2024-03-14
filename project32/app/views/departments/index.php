@@ -5,8 +5,10 @@
         <div class="row">
             <div class="col-md">
                 <a href="?controller=user" class='btn btn-secondary'><i class="bi bi-box-arrow-left"></i></a>
+
                 <h3 class="text-center text-primary">THÔNG TIN PHÒNG BAN</h3>
                 <a href="<?= domains.'index.php?controller=department&action=add'?>" class='btn btn-primary'>Thêm mới</a>
+
                 <table class="table">
                     <thead>
                         <tr>
@@ -36,11 +38,13 @@
                             <td><?= $department->getWebsite(); ?></td>
                             <td><?= $department->getParentDepartment(); ?></td>
                             <td>
+
                                 <a href="<?= domains.'index.php?controller=department&action=view&id='.$department->getDepartmentID(); ?>"
                                     class="btn btn-warning"><i class="bi bi-eye-fill"></i></a>
                             </td>
                             <td>
                                 <a href="<?= domains.'index.php?controller=department&action=edit&id='.$department->getDepartmentID(); ?>"
+
                                     class="btn btn-warning"><i class="bi bi-pencil-fill"></i></a>
                             </td>
                             <td>

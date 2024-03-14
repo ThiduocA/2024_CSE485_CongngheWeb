@@ -5,7 +5,9 @@
         <div class="row">
             <div class="col-md">
                 <a href="?controller=employee" class='btn btn-secondary'><i class="bi bi-box-arrow-left"></i></a>
+
                 <h3 class="text-center text-primary">SỬA THÔNG TIN PHÒNG BAN</h3>
+
                 <div class="row">
                     <div class="col-md-4">
                         <div class="avatar d-flex justify-content-center align-items-center mt-4">
@@ -17,6 +19,7 @@
                         </div>
                     </div>
                     <div class="col-md-8 mt-4">
+
                         <form id="employee-form"  method="post"
                             enctype="multipart/form-data" class="needs-validation border p-4 shadow-xl" novalidate>
                  
@@ -49,6 +52,7 @@
                                 <div class="col-md-12">
                                     <label for="username" class="form-label">parentdepartment</label>
                                     <input type="text" class="form-control" id="username" name="parentDepartmentID" value="<?=  $departmentid->getParentDepartment()?>">
+
                                 </div>
                             </div>
                             <div id="error-container" class='mt-2'></div>
