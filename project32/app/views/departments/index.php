@@ -1,64 +1,58 @@
-<?php session_start(); ?>
 
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <?php include (ROOT."/views/layout/head.php");?>
-
-
-</head>
-
-<body>
-    <?php include (ROOT."/views/layout/banner.php");?>
-    <?php include (ROOT."/views/layout/nav-logged.php");?>
-    <section class="section-department-table">
-        <h2>DANH BA</h2>
-        <a href="<?= domains.'index.php?controller=department&action=add'?>" class="add-new-department">THÊM MỚI</a>
-        <div class="department-table">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="">departmentID</th>
-                        <th scope="">departmentName</th>
-                        <th scope="">address</th>
-                        <th scope="">email</th>
-                        <th scope="">phone</th>
-                        <th scope="">logo</th>
-                        <th scope="">website</th>
-                        <th scope="">parentDepartmentID</th>
-                        <th>Hành động</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($getdepartments as $department): ?>
-                    <tr>
-                        <td><?= $department->getDepartmentID();?></td>
-                        <td><?= $department->getDepartmentName();?></td>
-                        <td><?= $department->getAddress();?></td>
-                        <td><?= $department->getEmail();?></td>
-                        <td><?= $department->getPhone();?></td>
-                        <td><?= $department->getLogo();?></td>
-                        <td><?= $department->getWebsite();?></td>
-                        <td><?= $department->getParentDepartment();?></td>
-                        <td>
-                            <a
-                                href="<?= domains.'index.php?controller=department&action=edit&id='. $department->getDepartmentID();?>">Edit</a>
-                            |
-                            <a
-                                href="<?= domains.'index.php?controller=department&action=delete&id='. $department->getDepartmentID();?>">Delete</a>
-                        </td>
-                    </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-
+<main class="mt-3">
+    <div class="container" style='width: 80vw'>
+        <div class="row">
+            <div class="col-md">
+                <a href="?controller=user" class='btn btn-secondary'><i class="bi bi-box-arrow-left"></i></a>
+                <h3 class="text-center text-primary">THÔNG TIN PHÒNG BAN</h3>
+                <a href="<?= domains.'index.php?controller=department&action=add'?>" class='btn btn-primary'>Thêm mới</a>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">STT</th>
+                            <th scope="col">Tên Phòng Ban</th>
+                            <th scope="col">Địa Chỉ Phòng Ban</th>
+                            <th scope="col">email</th>
+                            <th scope="col">Số Điện Thoại</th>
+                            <th scope="col">logo</th>
+                            <th scope="col">website</th>
+                            <th scope="col">parentdepartment</th>
+                            <th scope="col" class='text-center' colspan="3">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            foreach($getdepartments as $department):?>
+                        <tr>
+                        
+                 
+                            <td><?=$department->getDepartmentID(); ?></td>
+                            <td><?=$Fullname = $department->getDepartmentName(); ?></td>
+                            <td><?= $department->getAddress(); ?></td>
+                            <td><?= $department->getEmail(); ?></td>
+                            <td><?=$department->getPhone(); ?></td>
+                            <td><?=$Fullname = $department->getLogo(); ?></td>
+                            <td><?= $department->getWebsite(); ?></td>
+                            <td><?= $department->getParentDepartment(); ?></td>
+                            <td>
+                                <a href="<?= domains.'index.php?controller=department&action=view&id='.$department->getDepartmentID(); ?>"
+                                    class="btn btn-warning"><i class="bi bi-eye-fill"></i></a>
+                            </td>
+                            <td>
+                                <a href="<?= domains.'index.php?controller=department&action=edit&id='.$department->getDepartmentID(); ?>"
+                                    class="btn btn-warning"><i class="bi bi-pencil-fill"></i></a>
+                            </td>
+                            <td>
+                                <a href="<?= domains.'index.php?controller=department&action=delete&id='. $department->getDepartmentID();?>" class="btn btn-danger"><i class="bi bi-trash3-fill"></i></a>
+                            </td>
+                        </tr>
+                        <?php endforeach;
+                         ?>
+                    </tbody>
+                </table>
+                
+            </div>
         </div>
-    </section>
-
-
-</body>
-
-</html>
+    </div>
+</main>

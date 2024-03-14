@@ -1,6 +1,6 @@
 <nav>
     <div class="advanced-search-btn">
-        <a href="?controller=department"><button class="button-27" role="button">QUẢN LÝ PHÒNG
+        <a href="?controller=department&action=index"><button class="button-27" role="button">QUẢN LÝ PHÒNG
                 BAN</button></a>
     </div>
     <div class="advanced-search-btn">
