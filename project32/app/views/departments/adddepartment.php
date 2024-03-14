@@ -54,80 +54,63 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="container" style='width: 80vw'>
         <div class="row">
             <div class="col-md">
-                <a href="?controller=employee" class='btn btn-secondary'><i class="bi bi-box-arrow-left"></i></a>
-                <h3 class="text-center text-primary">THÊM MỚI DANH BẠ NHÂN VIÊN</h3>
+
+                <a href="?controller=department" class='btn btn-secondary'><i class="bi bi-box-arrow-left"></i></a>
+                <h3 class="text-center text-primary">thêm thông tin phòng ban</h3>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="avatar d-flex justify-content-center align-items-center mt-4">
-                            <img src="<?php echo domains.'public/assets/img/avatar1.png' ?>"
+                            <img src=""
+
                                 class="rounded-circle img-thumbnail" alt="Avatar" style="width: 250px; height: 250px;">
                         </div>
                         <div class='text-center mt-3'>
                             <input type="file" id="file-input" style="display: none;">
-                            <button type="button" class="btn btn-primary mt-2" id="choose-image-btn">Chọn
-                                Avatar</button>
+
                         </div>
                     </div>
                     <div class="col-md-8 mt-4">
-                        <form id="employee-form" action="?controller=employee&action=index" method="post"
+                        <form id="employee-form" action="" method="post"
                             enctype="multipart/form-data" class="needs-validation border p-4 shadow-xl" novalidate>
-
-                            <?php  
-                                $departmentName = $employeeService->getdepartmentNames();
-                            ?>
+                 
                             <div class="row g-3">
                                 <div class="col-md-6">
-                                    <label for="name" class="form-label">Họ và Tên</label>
-                                    <input type="text" class="form-control" id="name" name="name">
+                                    <label for="name" class="form-label">TÊN PHÒNG BAN</label>
+                                    <input type="text" class="form-control" id="name" name="departmentName" value="">
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label">Số điện thoại</label>
-                                    <input type="text" class="form-control" id="mobile" name="mobile">
+                                    <label class="form-label">ĐỊA CHỈ PHÒNG BAN</label>
+                                    <input type="text" class="form-control" id="mobile" name="address" value="">
                                 </div>
                                 <div class="col-md-12">
-                                    <label class="form-label">Địa chỉ</label>
-                                    <input type="text" class="form-control" id="address" name="address">
+                                    <label class="form-label">email</label>
+                                    <input type="text" class="form-control" id="address" name="email" value="">
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="email" class="form-label">Thư điện tử</label>
-                                    <input type="text" class="form-control" id="email" name="email">
+                                    <label for="email" class="form-label">Số  điện thoại</label>
+                                    <input type="text" class="form-control" id="email" name="phone" value="">
                                 </div>
+                             
                                 <div class="col-md-6">
-                                    <label class="form-label">Phòng khoa</label>
-                                    <select class="form-select" name='department_Name'
-                                        aria-label="Default select example">
-                                        <option selected disabled>Hãy chọn phòng khoa</option>
-                                        <?php foreach ($departmentName as $index => $item) : ?>
-                                        <?php if ($index === 0) : ?>
-                                        <option value="<?php echo $item['departmentName']; ?>" selected>
-                                            <?php echo $item['departmentName']; ?></option>
-                                        <?php else : ?>
-                                        <option value="<?php echo $item['departmentName']; ?>">
-                                            <?php echo $item['departmentName']; ?></option>
-                                        <?php endif; ?>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label">Chức vụ</label>
-                                    <input type="text" class="form-control" id="department" name="department">
+                                    <label class="form-label">logo</label>
+                                    <input type="text" class="form-control" id="department" name="logo" value="">
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="username" class="form-label">Tên đăng  nhập</label>
-                                    <input type="text" class="form-control" id="username" name="username">
+                                    <label for="username" class="form-label">website</label>
+                                    <input type="text" class="form-control" id="username" name="website" value="">
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="password1" class="form-label">Mật khẩu</label>
-                                    <input type="password" class="form-control" id="password1" name="password1">
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="password2" class="form-label">Nhập lại mật khẩu</label>
-                                    <input type="password" class="form-control" id="password2" name="password2">
+                                <div class="col-md-12">
+                                    <label for="username" class="form-label">parentDepartment</label>
+                                    <input type="text" class="form-control" id="username" name="parentDepartment" value="">
+
                                 </div>
                             </div>
                             <div id="error-container" class='mt-2'></div>
                             <div class='text-center mt-3'>
-                                <button type="submit" class="btn btn-primary mt-2" id="add-btn">Thêm</button>
+
+                                <button type="submit" class="btn btn-warning mt-2" id="update-btn">Cập nhật thông
+                                    tin</button> <!-- Sửa id của button thành 'update-btn' -->
+
                             </div>
                         </form>
                     </div>
@@ -136,3 +119,4 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </div>
 </main>
+
