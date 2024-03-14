@@ -34,7 +34,7 @@
                                         value="<?= $departments->getAddress(); ?>" readonly>
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="email" class="form-label">Email</label>
+                                    <label for="email" class="form-label">Thư điện tử</label>
                                     <input type="text" class="form-control" id="email" name="email"
                                         value="<?= $departments->getEmail(); ?>" readonly>
                                 </div>
@@ -54,7 +54,7 @@
                                         value="<?= $departments->getId();?>" readonly>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="username" class="form-label">Tài khoản</label>
+                                    <label for="username" class="form-label">Tên tài khoản</label>
                                     <input type="text" class="form-control" id="username" name="username"
                                         value="<?= $user['username'] ?>" readonly>
                                 </div>

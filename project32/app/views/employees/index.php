@@ -6,12 +6,12 @@ function confirmDelete() {
     return false;
 }
 </script>
-<?php session_start(); ?>
+
 <main class="mt-3">
     <div class="container" style='width: 80vw'>
         <div class="row">
             <div class="col-md">
-                <a href="?controller=employee" class='btn btn-secondary'><i class="bi bi-box-arrow-left"></i></a>
+                <a href="?controller=user" class='btn btn-secondary'><i class="bi bi-box-arrow-left"></i></a>
                 <h3 class="text-center text-primary">THÔNG TIN DANH BẠ NHÂN VIÊN</h3>
                 <a href="?controller=employee&action=create" class='btn btn-primary'>Thêm mới</a>
                 <table class="table">
@@ -29,7 +29,11 @@ function confirmDelete() {
                     <tbody>
                         <?php
                             $i = 1;
-                            foreach($employees as $post):?>
+                            $itemperpage = 10;
+                            $currentPage = isset($_GET['page']) ? $_GET['page']: 1;
+                            $totalPages = ceil(count($employees) / $itemperpage);
+                            $currentPageitems = array_slice($employees, ($currentPage - 1) * $itemperpage, $itemperpage);
+                            foreach($currentPageitems as $post):?>
                         <tr>
                             <?php  $departmentID = $post->getDepartmentID();
                                     $departmentName = $employeeService->getdepartmentName($departmentID);
@@ -57,10 +61,6 @@ function confirmDelete() {
                             </td>
                         </tr>
                         <?php $i++; endforeach;
-                            $itemperpage = 10;
-                            $totalPages = ceil(count($employees)/$itemperpage);
-                            $currentPage = isset($_GET['page']) ? $_GET['page']:10;
-                            $currentPageitems = array_slice($employees,($currentPage-1)*$itemperpage,$itemperpage);
                          ?>
                     </tbody>
                 </table>
