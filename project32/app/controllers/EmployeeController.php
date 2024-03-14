@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php
 
 require_once ROOT.'/services/EmployeeService.php';
@@ -14,7 +15,7 @@ function hashPassword($password) {
 class EmployeeController {
     //action:index = method: index
     public function index(){         
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['action'])) {
             $name = $_POST['name'];
             $mobile = $_POST['mobile'];
             $address = $_POST['address'];
@@ -33,26 +34,45 @@ class EmployeeController {
             $user_add = $user->addUser($username, $password , 'user', $employeeID['employeeID']);
         
         }
+        else if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $name = $_POST['name'];
+            $mobile = $_POST['mobile'];
+            $address = $_POST['address'];
+            $email = $_POST['email'];
+            $department = $_POST['department'];
+            $departmentName = $_POST['department_Name'];
+            $username = $_POST['username'];
+            $id = $_GET['id'] ;
+
+            $employee = new EmployeeService();
+            $deparmentId = $employee->getdepartmentId($departmentName);
+            $employee_add = $employee->updateEmployee($id, $name, $address, $email, $mobile, $department, 'avatar1.png', $deparmentId['departmentID']);
+            $employeeID = $employee->getEmployeeId($name);
+            $user = new UserService();
+            $user_add = $user->updateUser($username, 'user', $employeeID['employeeID']);
+        }
         $employeeService = new EmployeeService();
         $employees = $employeeService->getEmployee();
 
 
         //Su dung du lieu do o dau
         include(ROOT.'/views/employees/index.php');
+        include ROOT.'/views/layout/footer.php';
     }
 
     public function create(){
         //Co lay du lieu gi ko
-        $id = isset($_GET['id'])? $_GET['id'] : '1';
+        $id = isset($_GET['id'])? $_GET['id'] : '';
 
         
         $employeeService = new EmployeeService();
-
+        
         $userService = new UserService();
         $user = $userService->getUserById($id);
 
          //Su dung du lieu do o dau
          include(ROOT.'/views/employees/employee_add.php');
+         include ROOT.'/views/layout/footer.php';
     }
     public function detail(){
         //Co lay du lieu gi ko
@@ -62,11 +82,9 @@ class EmployeeController {
 
         $userService = new UserService();
         $user = $userService->getUserById($id);
-        // echo '<pre>';
-        // print_r($user);
-        // echo '</pre>';
         //Su dung du lieu do o dau
         include(ROOT.'/views/employees/employee_detail.php');
+        include ROOT.'/views/layout/footer.php';
    }
     public function edit(){
         //Co lay du lieu gi ko
@@ -78,6 +96,7 @@ class EmployeeController {
         $user = $userService->getUserById($id);
         //Su dung du lieu do o dau
         include(ROOT.'/views/employees/employee_edit.php');
+        include ROOT.'/views/layout/footer.php';
     }
     public function delete(){
         $id = isset($_GET['id'])? $_GET['id'] : '';
@@ -87,6 +106,7 @@ class EmployeeController {
         $departments = $employeeService->deleteEmployee($id);
         $employees = $employeeService->getEmployee();
         include(ROOT.'/views/employees/index.php');
+        include ROOT.'/views/layout/footer.php';
    }
 }
 // echo '<pre>';

@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    document.getElementById('add-btn').addEventListener('click', function() {
+    document.getElementById('employee-form').addEventListener('submit', function(event) {
         var inputs = document.querySelectorAll('input[type="text"]');
         var password1 = document.getElementById('password1').value;
         var password2 = document.getElementById('password2').value;
@@ -34,15 +34,16 @@ document.addEventListener('DOMContentLoaded', function() {
             errorMessage.textContent = 'Mật khẩu không khớp!';
             document.getElementById('error-container').innerHTML = '';
             document.getElementById('error-container').appendChild(errorMessage);
-        } else if (emptyInputs.length > 0) {
+            event.preventDefault(); // Chặn form được gửi đi
+        } else if (emptyInputs.length > 1) {
             // Nếu có ô input nào đó rỗng, hiển thị thông báo lỗi
             var errorMessage = document.createElement('div');
             errorMessage.classList.add('alert', 'alert-danger');
             errorMessage.textContent = 'Vui lòng điền đầy đủ thông tin vào các ô nhập!';
             document.getElementById('error-container').innerHTML = '';
             document.getElementById('error-container').appendChild(errorMessage);
+            event.preventDefault(); // Chặn form được gửi đi
         } else {
-            // Nếu không có ô input nào rỗng và mật khẩu khớp, tiến hành submit form
             window.location.href = '?controller=employee';
         }
     });
@@ -68,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                     </div>
                     <div class="col-md-8 mt-4">
-                        <form id="employee-form" action="?controller=employee" method="post"
+                        <form id="employee-form" action="?controller=employee&action=index" method="post"
                             enctype="multipart/form-data" class="needs-validation border p-4 shadow-xl" novalidate>
 
                             <?php  
@@ -88,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <input type="text" class="form-control" id="address" name="address">
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="email" class="form-label">Email</label>
+                                    <label for="email" class="form-label">Thư điện tử</label>
                                     <input type="text" class="form-control" id="email" name="email">
                                 </div>
                                 <div class="col-md-6">
@@ -112,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <input type="text" class="form-control" id="department" name="department">
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="username" class="form-label">User-Name</label>
+                                    <label for="username" class="form-label">Tên đăng  nhập</label>
                                     <input type="text" class="form-control" id="username" name="username">
                                 </div>
                                 <div class="col-md-6">

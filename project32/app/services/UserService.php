@@ -55,13 +55,12 @@ class UserService
         mysqli_stmt_close($stmt);
         return $result;
     }
-    public function updateUser($id, $username, $email, $password)
+    public function updateUser($username, $role, $employeeID)
     {
         $conn = connectDB();
-        $sql = "UPDATE users SET username = ?, email = ?, password = ? WHERE id = ?";
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        $sql = "UPDATE users SET username = ?, role = ? WHERE employeeID = ?";
         $stmt = mysqli_prepare($conn, $sql);
-        mysqli_stmt_bind_param($stmt, "sssi", $username, $email, $hashed_password, $id);
+        mysqli_stmt_bind_param($stmt, "ssi", $username, $role, $employeeID);
         $result = mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
         return $result;

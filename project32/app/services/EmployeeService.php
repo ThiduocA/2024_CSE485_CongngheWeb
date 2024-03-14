@@ -93,17 +93,15 @@ class EmployeeService{
             mysqli_close($conn);
             return $result;
         }
-    public function updateEmployee($id, $name, $email, $department_id) {
-        $conn = connectDB();
-        $sql = "UPDATE employees SET name = ?, email = ?, department_id = ? 
-       WHERE id = ?";
-        $stmt = mysqli_prepare($conn, $sql);
-        mysqli_stmt_bind_param($stmt, "ssii", $name, $email, $department_id, 
-       $id);
-        $result = mysqli_stmt_execute($stmt);
-        mysqli_stmt_close($stmt);
-        return $result;
-       }
+    public function updateEmployee($id, $name, $address, $email, $mobilephone, $position, $avatar, $department_id) {
+            $conn = connectDB();
+            $sql = "UPDATE employees SET fullname = ?, address = ?, email = ?, mobilephone = ?, position = ?, avatar = ?, departmentID = ? WHERE employeeID = ?";
+            $stmt = mysqli_prepare($conn, $sql);
+            mysqli_stmt_bind_param($stmt, "ssssssii", $name, $address, $email, $mobilephone, $position, $avatar, $department_id, $id);
+            $result = mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
+            return $result;
+        }
     public function deleteEmployee($id) {
         $conn = connectDB();
         $sql = "DELETE FROM employees WHERE employeeID = ?";
