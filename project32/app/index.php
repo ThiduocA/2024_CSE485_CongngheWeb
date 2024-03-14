@@ -1,7 +1,6 @@
 <?php
 include("config/config.php");
 $controller = isset($_GET['controller']) ? $_GET['controller']: 'guest';
-
 if(isset($_GET['action'])){
     $action = $_GET['action'];
 }else{

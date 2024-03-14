@@ -8,7 +8,12 @@ class UserController
         // $userService = new UserService();
         // $userService->getUsers();
         $employeeService = new EmployeeService();
-        $employees = $employeeService->getEmployees();
+        $employees = $employeeService->getEmployee();
         include('views/users/index.php');
+    }
+
+    public function logout(){
+        session_destroy();
+        header('Location:?controller=guest&action=login');
     }
 }

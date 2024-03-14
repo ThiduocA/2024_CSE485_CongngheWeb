@@ -1,18 +1,10 @@
-<?php 
-session_start();
-if(!isset($_SESSION['username'])){
-    header('location:?controller=guest&action=login');
-}
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <?php include (ROOT."/views/layout/head.php");?>
 
 <body>
     <?php include (ROOT."/views/layout/banner.php");?>
-    <?php include (ROOT."/views/layout/nav-logged.php");?>
+    <?php include (ROOT."/views/layout/nav.php");?>
     <div class="content">
         <div class="content-left">
             <div class="news">
