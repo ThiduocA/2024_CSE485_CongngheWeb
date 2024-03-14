@@ -74,9 +74,10 @@ class EmployeeController {
          include(ROOT.'/views/employees/employee_add.php');
          include ROOT.'/views/layout/footer.php';
     }
-    public function detail(){
+    public function detail()
+    {
         //Co lay du lieu gi ko
-        $id = isset($_GET['id'])? $_GET['id'] : '';
+        $id = isset($_GET['id']) ? $_GET['id'] : '';
         $employeeService = new EmployeeService();
         $departments = $employeeService->getEmployeeById($id);
 
