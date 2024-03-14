@@ -102,7 +102,6 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <label for="username" class="form-label">parentDepartment</label>
                                     <input type="text" class="form-control" id="username" name="parentDepartment"
                                         value="">
-
                                 </div>
                             </div>
                             <div id="error-container" class='mt-2'></div>
